@@ -17,7 +17,7 @@ export function Send() {
   const { data } = useVerifyMessage({
     message: "Hello, world!",
     signature: signature as `0x${string}`,
-    address: "0x4e2163B8F6F6e29CBFe7f5fD469aC386258f79a4",
+    address: account.address,
   });
 
   const handleSendTransaction = async () => {
@@ -38,6 +38,7 @@ export function Send() {
       const message = "Hello, world!";
       const signature = await signMessageAsync({ message });
       console.log("Message signed:", signature);
+      alert(`Message signed: ${signature}`);
       setSignature(signature);
     } catch (error) {
       console.error("Message signing failed:", error);
